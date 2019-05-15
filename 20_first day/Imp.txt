@@ -1,0 +1,32 @@
+1-
+talk about the following services:
+	core
+	profiles hds
+	case
+	capture
+	sis
+	bam
+	archive
+
+* all important tables and what they do
+* csparams table (htmlc , control ..., priority= "true" in xml)
+
+2-
+Two ways to send data to server (submit form or ajax request)
+examples
+
+3-
+Talk about Everteam-Core Structure
+
+---------------------------------------------------------------------------------------------------------------
+1- ShowPage and GetRecords the most important servlets (Example on each one and difference i.e: when to use each one)
+
+2-
+talk about freemarker and give an example (params block) ---> Template.java
+
+3-
+${se.param} and ${sd.param},${tr.keyword} all the table csuser are cached in the session
+
+4-
+cstableforms
+

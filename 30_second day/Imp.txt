@@ -1,0 +1,14 @@
+1- 
+what is a profile ?
+
+2-
+how do we create a profile
+
+3-
+what is the difference between CSFILTER and Profile
+
+4-
+explain why do we need HDS.
+
+5-
+exercise create an application in eversuite for the employee File HDS

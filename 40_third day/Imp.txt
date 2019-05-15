@@ -1,0 +1,2 @@
+1-
+create a table LEAVE_REQUEST

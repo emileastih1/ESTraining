@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title>${tr.EverSuite} - ${tr.Results}</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <SCRIPT src="scripts/jquery-ui/js/jquery-1.6.2.min.js"></SCRIPT>
+    <script>
+	
+
+	//Submitting a form
+	function submitForm ( ) {
+	
+	  var frm = document.forms.submitData;
+	  var dbName 	= $("#DBNameText").val();
+	  var tableName = $("#TableNameText").val();
+		
+		
+	  if (dbName != "" && tableName != "") {
+
+	     frm.DBName.value = dbName;
+	     frm.TableName.value = tableName;
+	     
+	     frm.submit();
+	  }
+	  else{
+		  alert("please fill in the dbname and tablename");
+	  }
+	
+	}
+	
+	
+	//Ajax Request
+	$(document).ready(function(){
+		
+		$("#submit").click(function(){
+			var dbName 	= $("#DBNameText").val();
+			var tableName = $("#TableNameText").val();
+			if (dbName != "" && tableName != "") {
+	            $.ajax( {
+	                type : 'POST',
+	                url : "GetRecords?DBName="+dbName+"&TableName="+tableName,
+	                success : function(result) {
+			              $("#result").html(result);
+	                },
+	                dataType : "html"
+	            });
+			}
+			else{
+				alert("please fill in the dbname and tablename")
+			}
+
+		});
+		
+	});
+
+
+
+    </script>
+    <style>
+    	.inputText {font-weight:bold;}
+    </style>
+  </head>
+
+  <body >
+
+
+
+<div id="divnew" >
+	<span class="inputText">DBName</span>   : <input type="text" name="DBNameText" id="DBNameText" value="" /><br />
+	<span class="inputText">TableName</span>:<input type="text" name="TableNameText" id="TableNameText" value="" /><br />
+	<input type="button" id="submit" name="submit" onclick="submitForm()" value="Submit Data " /><br />
+<!-- 	<input type="button" id="submit" name="submit" value="Submit Data" /><br /> -->
+	<span class="inputText">Result Html</span>: <div id="result"></div>
+
+<br/>
+    <form id="submitData" method="POST" action="GetRecords">
+        <input type="hidden" id="DBName" name="DBName" size="50" value="" />
+        <input type="hidden" id="TableName" name="TableName" size="50" value="" />
+
+    </form>
+</div>
+
+
+
+
+  </body>
+</html>
+
+
